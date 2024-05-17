@@ -22,7 +22,41 @@
             return sol;            
         }
 
-        VizinhoMaisProximo(){
+        VizinhoMaisProximo(matriz,maxInteger){
+            var ncidades = matriz.length
+            var cidAtual = 0
+
+            var MelhorRota = []
+            var visitadas = []
+
+            MelhorRota.push(cidAtual)
+            visitadas[cidAtual] = true
+
+            for(var i =0; i < ncidades; i ++){
+                var proxCid = -1 
+                var menorDistancia = maxInteger
+
+                for(var j = 0; j < ncidades; j++){
+                    if(!visitadas[j] && matriz[cidAtual][j] < menorDistancia){
+                        proxCid = j
+                        menorDistancia = matriz[cidAtual][j]
+                    }
+                    
+                }
+
+                if(proxCid != -1){
+                    MelhorRota.push(proxCid)
+                    visitadas[proxCid] = true
+                    cidAtual = proxCid
+                }
+
+            }
+
+            MelhorRota.push(MelhorRota[0])
+
+            return MelhorRota
+
+
 
         }
 
@@ -52,7 +86,6 @@
                 sol[ind2] = aux1;
         
                 var AvaliaSolNova = gp.Avalia(sol.length, sol, m);
-                console.log('Avalia nova solução -> ' + AvaliaSolNova);
                 
                 if (AvaliaSolNova < AvaliaSolAntiga) {
                     // Se a nova solução for melhor, atualiza a solução antiga
