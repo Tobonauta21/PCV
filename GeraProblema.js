@@ -26,7 +26,7 @@
             
             for(var i =0; i < tam-1;i++){
                 valor += matriz[sol[i]][sol[i+1]]
-                console.log(valor)
+                
             }
             
             valor += matriz[sol[tam-1]][sol[0]]
