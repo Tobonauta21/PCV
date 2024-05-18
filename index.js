@@ -6,11 +6,16 @@
 //Importando as classes
     const GeraProblema = require('./GeraProblema')
     const Alg = require('./Alg')
+
+
+//Gerando o problema
     const gp = new GeraProblema()
     const alg = new Alg()
+/*
     const tamMatriz = 5
     const maxValue = 8 
     const matriz = gp.GerarMatriz(tamMatriz,maxValue)
+//Gerando soluções
     var sol = alg.Aleatoria(5)
     const avalia = gp.Avalia(5,sol,matriz)
     console.log(matriz)
@@ -28,5 +33,16 @@
     var avalvmp = gp.Avalia(tamMatriz,vmp,matriz)
     console.log('Vizinho mais próximo -> '+vmp)
     console.log('Avalia Vizinho mais próximo -> '+avalvmp)
+*/
+
+//Rotina algoritmo genético
+    const tp = 5
+    const n = 8
+
+    const popIni = alg.popIni(n,tp)
+    console.log(popIni)
+
+    
+
   
     

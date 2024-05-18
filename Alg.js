@@ -103,6 +103,47 @@
 
         }
 
+    //Funções Auxiliares para algoritmo genético
+        // Função auxiliar para criar um vetor de zeros
+    npzerosVetor(tam) {
+        return new Array(tam).fill(0);
+    }
+
+    // Função auxiliar para criar uma matriz de zeros
+    npzerosMatriz(n, tp) {
+        return Array.from({ length: tp }, () => new Array(n).fill(0));
+    }
+
+    // Função para embaralhar um array
+    shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+
+    // Função para criar um cromossomo
+    Cromossomo(n) {
+        let ind = this.npzerosVetor(n);
+        for (let i = 0; i < n; i++) {
+            ind[i] = i;
+        }
+        return this.shuffle(ind);
+    }
+
+    // Função para criar a população inicial
+    popIni(n, tp) {
+        let pop = this.npzerosMatriz(n, tp);
+        for (let i = 0; i < tp; i++) {
+            pop[i] = this.Cromossomo(n);
+        }
+        return pop;
+    }
+
+
+    
+    //Rotina Algoritmo Genético
         AlgoritmoGenetico(){
 
         }
